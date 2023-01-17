@@ -4,7 +4,7 @@ import {useEffect,useState} from 'react'
 import {getProducts, getProductsByCategory} from '../../mockasync'
 import { useParams } from 'react-router-dom'
 
-const Itemlistcontainer = ({greeting}) => {
+const Itemlistcontainer = ({ greeting }) => {
 
     const [products, setProducts] = useState([])
 
@@ -27,9 +27,13 @@ const productsComponents= products.map(prod => <li key={prod.id}>{prod.name}{pro
 console.log(productsComponents)
     
 return(
-    <div className='ItemListContainer'>
+    <div>
         <h1>{greeting}</h1>
-       <Itemlist products={products}/>
+
+            <div >
+                <div ><Itemlist class='col' products={products}/></div>
+            
+            </div>
     </div>
 )
 }
