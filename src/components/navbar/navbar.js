@@ -1,12 +1,18 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import './navbar.css'
 import Cartwidget from "../carrito/cartwidget"
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { CartContext } from '../../context/cartcontext'
 const Navbar= () =>{
 
+  const navigate = useNavigate()
+  const { totalQuantity } = useContext(CartContext)
     return(
+      
     <nav className="navbar">
-    <h1 className="navbar_titulo">
-      <Link to ='./'>e-comerce</Link>
+    <h1 className="navbar_titulo" onClick={() => navigate('/')} >
+    E-commerce-libertini
     </h1>
     
     <div>

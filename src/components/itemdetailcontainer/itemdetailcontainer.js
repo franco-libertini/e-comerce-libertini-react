@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 // import { getProductsbyid } from "../../mockasync";
 import Itemdetail from "../itemdetail/itemdetail"
 import { getDoc, doc } from 'firebase/firestore'
-import { getDoc, doc } from 'firebase/firestore'
+
 import { datab } from '../../services/firebase/firebaseconfig'
+
+// --------------------------------------------
 const Itemdetailcontainer = () => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
@@ -17,11 +19,11 @@ const Itemdetailcontainer = () => {
 
     useEffect(() => {
         (async () => {
-            const productRef = doc(db, 'products', productId)
+            const productRef = doc(datab, 'products', productId)
             try {
             const snapshot = await getDoc(productRef)
             const fields = snapshot.data()
-            const productAdapted = { id: snapshot.id, ...fields}
+            const productAdapted={id: snapshot.id, ...fields}
     
             setProduct(productAdapted)
             } catch (error) {
@@ -39,7 +41,7 @@ const Itemdetailcontainer = () => {
     return(
         <div className='ItemDetailContainer' >
             <h1>Detalle {product.name}</h1>
-            <ItemDetail {...product}/>
+            <Itemdetail {...product}/>
         </div>
     )
 }

@@ -1,38 +1,48 @@
 import {useEffect,useState} from 'react' 
 import Itemlist from '../itemlist/itemlist'
 import { useParams } from 'react-router-dom'
-import { getDocs,collection,query,where } from 'firebase/firestore'
+import { getDocs,collection} from 'firebase/firestore'
 import { datab } from '../../services/firebase/firebaseconfig'
 
 
-const Itemlistcontainer =({greetings})=>{
-    const[products,setProducts]= useState([])
-    const [loading,setloading]=useState([true])
-    const{categoryId}=useParams()
+const Itemlistcontainer = ({ greetings }) => {
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
 
-    useEffect(()=>{
-        document.title='todos los productos'
-    },[])
-    useEffect(()=>{
-        setloading(true)
-    })
-    const collectionRef =categoryId 
-    ?query(collection(datab,'products'),where('category','===',categoryId))
-    :collection(datab,'products')
+    const { categoryId } = useParams()
 
-    getDocs(collectionRef).then(Response=>{
-        console.log(Response)
-        const productsadapted =Response.docs.map(doc=>{
-                const data=doc.data()
-                return {id:doc.id , ...data}
-        })
-        setProducts(productsadapted)
-    }).catch (error=>{
-        console.log(error)
-    }).finally(()=>
-    {setloading(false)
-    })
+    useEffect(() => {
+        document.title = 'Todos los productos'
+    }, [])
 
+    useEffect(() => {
+        (async () =>{ 
+            setLoading(true)
+            
+            const productsRef = collection(datab, 'products')
+
+            try {
+                const snapshot = await getDocs(productsRef)
+
+                const productsAdapted = snapshot.docs.map(doc => {
+                    const fields = doc.data()
+
+                    return {id: doc.id, ...fields}
+                })
+
+                setProducts(productsAdapted)
+            } catch (error) {
+                console.log(error)
+            } finally { 
+                setLoading(false)
+            }
+        })()
+    }, [categoryId])
+
+
+    if(loading) {
+        return <h1>Cargando productos...</h1>
+    }
 return(
     <div>
         <h1>{greetings}</h1>
@@ -44,15 +54,5 @@ return(
     </div>
 )
 }
+
 export default Itemlistcontainer
-
-
-// const asynFunction = categoryId ? getProductsByCategory: getProducts
-// asynFunction(categoryId)
-//     .then(productsFromApi => {
-//         setProducts(productsFromApi)
-//         })
-//         setProducts(productsadapted)
-//     }).catch (error=>{
-//         console.log(error)
-//     }).finally(()=>{setloading(false)})

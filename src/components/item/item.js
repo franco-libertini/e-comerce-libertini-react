@@ -1,7 +1,7 @@
-import { Link,useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import './itemstyles.css'
 const Item=({ id, name, img, price, stock })=>{ 
-    const navigate =useNavigate()
+  
     
     return ( 
         

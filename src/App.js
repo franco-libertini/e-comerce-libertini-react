@@ -1,9 +1,12 @@
 
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom'
+import AppRouter from './routes/routes';
 import Navbar from './components/navbar/navbar'
-import Itemlistcontainer from './components/itemlistcontainer/itemlistcontainer';
-import Itemdetailcontainer from './components/itemdetailcontainer/itemdetailcontainer';
+import { CartProvider } from './context/cartcontext'
+
+
+
 function App() {
   return (
     
@@ -15,29 +18,6 @@ function App() {
           <AppRouter />
           </CartProvider>
         </BrowserRouter>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  {/* <BrowserRouter>
-  <Navbar/>
-  <Routes>
-  <Route path='/' element={<Itemlistcontainer greeting={'bienvenido al ecomerce'}/>}/>
-  <Route path='/category/:categoryId' element={<Itemlistcontainer/>}/>
-  <Route path='/item/:productId' element={<Itemdetailcontainer/>}/>
-  </Routes>
-  
-
-  </BrowserRouter> */}
     </div>
   );
 }

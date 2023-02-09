@@ -1,14 +1,17 @@
-import { useState } from "react"
+import { useState,useContext } from "react"
 import '../item/itemstyles.css'
 import './itemdetails.css'
 import { Link } from "react-router-dom"
 import Itemcount from "../itemcount/itemcount"
+import { CartContext } from "../../context/cartcontext"
+
 const Itemdetail= ({id, name, img, price, category, description, stock}) =>{
     
     const [Quantity, setQuantity] = useState(0)
-    
+    const { addItem } = useContext(CartContext)
     const handleOnadd = (qty) => {
-        setQuantity(qty)
+        setQuantity(parseInt(qty))
+        addItem({id, name, Quantity,price })
 }
     return (
         <div>
@@ -22,10 +25,10 @@ const Itemdetail= ({id, name, img, price, category, description, stock}) =>{
             </div>
             
             {
-                    quantity > 0 ? (
+                    Quantity > 0 ? (
                         <Link to='/cart' className='Option'>Terminar compra</Link>
                     ) : (
-                        <ItemCount stock={stock} onAdd={handleOnAdd} />
+                        <Itemcount stock={stock} onAdd={handleOnadd} />
                     )
                 }
             
