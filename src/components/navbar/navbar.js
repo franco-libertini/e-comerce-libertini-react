@@ -15,7 +15,7 @@ const Navbar= () =>{
       <Link className='navbar_botones' to='/category/joyeria'>joyeria</Link>
     
     </div>
-    <Cartwidget/>
+    <Cartwidget quantity={totalQuantity}/>
   </nav>
   
     )

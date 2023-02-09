@@ -21,10 +21,13 @@ const Itemdetail= ({id, name, img, price, category, description, stock}) =>{
                 <p class="descripcion" >Descripcion: {description}</p>
             </div>
             
-            {Quantity> 0 ?(<Link>Terminar de comprar</Link>)
-            :
-            (<Itemcount stock={stock} Onadd={handleOnadd}/>)
-            }
+            {
+                    quantity > 0 ? (
+                        <Link to='/cart' className='Option'>Terminar compra</Link>
+                    ) : (
+                        <ItemCount stock={stock} onAdd={handleOnAdd} />
+                    )
+                }
             
         </div>
     )

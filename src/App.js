@@ -8,7 +8,27 @@ function App() {
   return (
     
     <div className="App">
-  <BrowserRouter>
+ 
+        <BrowserRouter>
+        <CartProvider>
+          <Navbar />
+          <AppRouter />
+          </CartProvider>
+        </BrowserRouter>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  {/* <BrowserRouter>
   <Navbar/>
   <Routes>
   <Route path='/' element={<Itemlistcontainer greeting={'bienvenido al ecomerce'}/>}/>
@@ -17,7 +37,7 @@ function App() {
   </Routes>
   
 
-  </BrowserRouter>
+  </BrowserRouter> */}
     </div>
   );
 }
