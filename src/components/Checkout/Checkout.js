@@ -121,7 +121,7 @@ const Checkout = () => {
     };
 
     return (
-        <div>
+        <div className="form-container">
             <h4 className="title-pag" style={{ color: "black", marginTop: "50px", marginBottom: "70px", fontSize: '35px' }}>Completá tus datos y confirmá la compra</h4>
             <div className="container">
                 <form className="FormularioOrden">

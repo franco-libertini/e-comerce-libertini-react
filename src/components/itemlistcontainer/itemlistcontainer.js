@@ -5,6 +5,7 @@ import { useAsync } from '../../hooks/useAsync'
 import { useTitle } from '../../hooks/useTitle'
 import { getProducts } from '../../services/firebase/firestore/products'
 import { NavLink } from 'react-router-dom';
+import Redes from '../redes/redes'
 
 const ItemListContainer = ({ greeting, color }) => {
     useTitle('ecomerce-libertini', [])
@@ -59,9 +60,12 @@ const ItemListContainer = ({ greeting, color }) => {
                 <NavLink to={`/category/joyeria`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>joyeria</NavLink>
             </div>
             <ItemList products={products} />
+            <div>
+            <Redes></Redes>
+            </div>
 
-        
         </div>
+        
     )
 
 }
