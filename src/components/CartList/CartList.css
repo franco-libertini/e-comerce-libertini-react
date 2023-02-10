@@ -12,30 +12,42 @@
 }
 
 .btn-del:hover {
-    background-color: #9da5d2;
+    background-color: #070708;
     text-decoration: none;
     color: white;
     border-color: white;
 }
 
 .ButtonLimpiarCarritoYRealizarCompra {
-    margin-top: 10px;
-    background-color: #a5d8ff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 8px 20px;
-    margin-block: auto;
-    margin-bottom: 25px;
-    transition: all 0.3s ease 0s;
-    text-decoration: none;
-    color: black;
-    width: 180px;
-    margin-inline: auto;
+     align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  width: 180px;
+  margin-inline: auto;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+    
 }
 
 .ButtonLimpiarCarritoYRealizarCompra:hover {
-    background-color: #7ec7ff;
-    color: black;
+    box-shadow:0px 0px 10px 1px black;
 }

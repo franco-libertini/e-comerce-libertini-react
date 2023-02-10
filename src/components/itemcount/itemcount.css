@@ -8,34 +8,41 @@
 }
 
 .Button {
-    border-color: black;
-    text-decoration: none;
-    /* border-radius: 25;
-    margin: 0 30px; */
-    width: auto;
-    padding: 4px;
-    font-size: 8px;
-    background: #ffffff;
-    /* border-radius: 8px; */
-    display: flex;
-    align-self: center;
-    flex-grow: 0;
-    justify-content: center;
     align-items: center;
-    text-decoration: none;
-    color: #000000;
-    border: 1.2px solid black;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    color: #000;
     cursor: pointer;
-    outline: inherit;
-    font-size: larger;
+    display: inline-flex;
+    fill: #000;
+    width: 180px;
+    margin-inline: auto;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .NumberItemCount {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
-    padding: 10px;
+    font-size: 40px;
+    padding: 30px;
+    translate: 0 -10px;
     margin: 0;
     order: 1;
 }
@@ -46,40 +53,70 @@
 }
 
 .ButtonAgregar {
-    font-size: 16px;
-    margin-top: 10px;
-    background-color: #a5d8ff;
-    border: none;
-    border-radius: 50px;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    color: #000;
     cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    width: 180px;
+    margin-inline: auto;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
     font-weight: 600;
-    padding: 8px 20px;
-    margin-block: 10px;
-    transition: all 0.3s ease 0s;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
     text-decoration: none;
-    color: black;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .ButtonDecInc {
-    margin-top: 10px;
-    background-color: #a5d8ff;
-    border: none;
-    border-radius: 10px;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    color: #000;
     cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    width: 40px;
+    margin-inline: auto;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
     font-weight: 600;
-    padding: 4px 8px;
-    margin-block: 10px;
-    transition: all 0.3s ease 0s;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 40px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
     text-decoration: none;
-    color: black;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    margin-bottom: 20px;
+
+    touch-action: manipulation;
 }
 
 .ButtonAgregar:hover {
-    background-color: #7ec7ff;
-    color: black;
+    box-shadow:0px 0px 10px 1px black;
 }
 
 .ButtonDecInc:hover {
-    background-color: #7ec7ff;
-    color: black;
+    
+    box-shadow:0px 0px 10px 1px black;
 }

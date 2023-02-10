@@ -3,8 +3,8 @@
 }
 
 img {
-    width: 16px;
-    margin-right: 10px;
+    width: 40px;
+    margin-right: 20px;
 }
 
 span {
@@ -13,6 +13,8 @@ span {
 
 .CartWidgetNumber {
     margin-right: 24px;
+    font-weight: 700;
+    font-size: xx-large;
     text-decoration: none !important;
     color: black !important;
 }

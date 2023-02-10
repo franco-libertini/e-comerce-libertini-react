@@ -14,7 +14,7 @@ const Navbar = () => {
         <div>
           <Link to='/' className="navbar-brand">
             <img src="..\assets\images\ecomercelogo.webp" alt='logo'/>
-            <h1>E-commerce-libertini</h1>
+            <h1 className='navbar-brand-text'>E-commerce-libertini</h1>
           </Link>
           <button
             className="navbar-toggler"
