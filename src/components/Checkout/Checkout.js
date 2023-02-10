@@ -1,7 +1,7 @@
 import { addDoc, getDocs, writeBatch, query, collection, where, documentId } from "firebase/firestore"
 import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
-import { useNavigate, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { db } from "../../services/firebase/firebaseconfig"
 import { NotificationContext } from "../../notification/NotificationService"
 import './Checkout.css'
@@ -18,7 +18,7 @@ const Checkout = () => {
     const [email, setEmail] = useState('')
     const [email2, setEmail2] = useState('')
 
-    const navigate = useNavigate()
+    
 
     const createOrder = async () => {
         setLoading(true)

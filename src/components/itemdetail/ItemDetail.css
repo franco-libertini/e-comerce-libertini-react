@@ -27,7 +27,8 @@
 
 .ItemDetailPrice {
     color: rgb(0, 0, 0);
-    font-size: 18px;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .ItemHeader {
@@ -67,8 +68,9 @@
 .ItemDetailImg {
     object-fit: cover;
     object-position: center;
-    width: 280px;
-    height: 438, 87px;
+    border-style: groove;
+    width: 550px;
+    height: 500, 87px;
     padding: auto;
     margin-right: 80px;
     box-shadow: 0 4px 8px 0 #828282, 0 6px 20px 0 rgba(151, 151, 151, 0.948);

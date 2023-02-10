@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 const CartWidget = ({ totalQuantity }) => {
     return (
         <Link to='/cart' className="CartWidgetNumber">
-            <img src='..\assets\images\carticon.png' alt='*cart*' />
+            
+            <i className="fa fa-shopping-cart"></i>
             {totalQuantity}
         </Link>
     );

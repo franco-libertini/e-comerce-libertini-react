@@ -39,7 +39,10 @@ const CartList = ({ cart }) => {
                                 <strong>${total}</strong>
                             </div>
                             <Link to='/checkout' className="ButtonLimpiarCarritoYRealizarCompra">Realizar compra</Link>
+                            <Link to='/' className="navbar-brand"><button className='ButtonTerminarCompra'>Volver a la tienda</button></Link>
+                
                         </div>
+                        
 
                     </div>
 

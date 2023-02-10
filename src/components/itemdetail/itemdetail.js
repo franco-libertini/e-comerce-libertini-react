@@ -6,12 +6,12 @@ import { CartContext } from '../../context/CartContext'
 import { NotificationContext } from '../../notification/NotificationService'
 
 
-const ItemDetail = ({ id, title, img, price, stock }) => {
+const ItemDetail = ({ id, title, img, price, description , stock }) => {
     const { addItem, isInCart } = useContext(CartContext)
     const setNotification = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {        
-        addItem({ id, title, price, quantity,img})
+        addItem({ id, title, price, description, quantity,img})
         setNotification('error',`Se agregó al carrito ${quantity} ${title}`, 5)
     }
 
@@ -22,11 +22,17 @@ const ItemDetail = ({ id, title, img, price, stock }) => {
                     <img src={img} alt={title} className="ItemDetailImg" />
                 </picture>
             </header>
-            <div className='ItemDetailInfo'>
+            <div className='card ItemDetailInfo'>
                 <section>
-                    <h2 className="ItemDetailTitle">
+                    <h2 className="card ItemDetailTitle">
                         {title}
                     </h2>
+                </section>
+                <section >
+                    <p className="ItemDetailPrice">
+                    
+                    {description}
+                    </p>
                 </section>
                 <section>
                     <p className="ItemDetailPrice">
@@ -38,10 +44,15 @@ const ItemDetail = ({ id, title, img, price, stock }) => {
                 {
                     isInCart(id) ? (
                         <Link to='/cart'><button className='ButtonTerminarCompra'>Terminar compra</button></Link>
+                        
                     ) : (
                         <ItemCount stock={stock} onAdd={handleOnAdd} />
                     )
+                        
                 }
+                <div>
+                <Link to='/' className="navbar-brand"><button className='ButtonTerminarCompra'>Volver a la tienda</button></Link>
+                </div>
             </footer>
                 </div>
             </div>
