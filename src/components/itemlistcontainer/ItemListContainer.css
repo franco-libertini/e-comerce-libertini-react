@@ -24,37 +24,44 @@ h1 {
 }
 
 .CategoryButton {
-    margin-inline: 10px;
-    background-color: #a5d8ff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 8px 20px;
-    margin-block: 10px;
-    transition: all 0.3s ease 0s;
-    text-decoration: none;
-    color: black;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #252424;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#d4d4d4;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: #252424;
+    border-radius: 8px;
 
 }
 
 .CategoryButton:hover {
-    background-color: #7ec7ff;
+    background-color: #859eb1;
     color: black;
 }
 
 .ActiveOptionCategoryButtons {
-    margin-inline: 10px;
-    background-color: #a5d8ff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 8px 20px;
-    margin-block: 10px;
-    transition: all 0.3s ease 0s;
-    text-decoration: underline;
-    color: black;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #252424;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#0c0a0a;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: #a8a7a7;
+    border-radius: 8px;
+
 }
 
 

@@ -8,9 +8,9 @@ import CartContainer from '../components/CartContainer/CartContainer';
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path='/' element={<ItemListContainer greeting='Nuestro catálogo' color='black' />} />
-            <Route path='/category/:categoryId' element={<ItemListContainer greeting='Nuestro catálogo' color='black' />} />
-            <Route path='/detail/:productId' element={<ItemDetailContainer greeting='Nuestro catálogo' color='grey' />} />
+            <Route path='/' element={<ItemListContainer greeting='Las mejores ofertas' color='black' />} />
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting='Las mejores ofertas' color='black' />} />
+            <Route path='/detail/:productId' element={<ItemDetailContainer greeting='Las mejores ofertas' color='grey' />} />
             <Route path='/cart' element={<CartContainer />} />
             <Route path='/checkout' element={<Checkout />} />
         </Routes>

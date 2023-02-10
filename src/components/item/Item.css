@@ -55,13 +55,13 @@
 .ItemImg {
     object-fit: cover;
     object-position: center;
-    width: 126.719px;
-    height: 198.948px;
+    width: 163px;
+    height: 238.948px;
     transition: all 0.3s ease 0s;
     margin: 0;
     box-shadow: 0 4px 8px 0 #828282, 0 6px 20px 0 rgba(151, 151, 151, 0.948);
 }
 
 .ItemImg:hover {
-    transform: scale(1.01);
+    transform: scale(2.01);
 }

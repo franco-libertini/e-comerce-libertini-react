@@ -11,7 +11,7 @@ const ItemDetail = ({ id, title, img, price, stock }) => {
     const setNotification = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {        
-        addItem({ id, title, price, quantity, img})
+        addItem({ id, title, price, quantity,img})
         setNotification('error',`Se agregó al carrito ${quantity} ${title}`, 5)
     }
 

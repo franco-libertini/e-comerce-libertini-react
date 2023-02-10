@@ -5,6 +5,7 @@ import { useAsync } from '../../hooks/useAsync'
 import { useTitle } from '../../hooks/useTitle'
 import { getProducts } from '../../services/firebase/firestore/products'
 import { NavLink } from 'react-router-dom';
+
 const ItemListContainer = ({ greeting, color }) => {
     useTitle('ecomerce-libertini', [])
 
@@ -13,7 +14,7 @@ const ItemListContainer = ({ greeting, color }) => {
     const getProductsWithCategory = () => getProducts(categoryId)
 
     const { data: products, error, loading } = useAsync(getProductsWithCategory, [categoryId])
-
+    
     const rejectApi = () => {
         alert('Hubo un problema al conectarse con la base de datos', {
             position: "bottom-right",
@@ -47,14 +48,19 @@ const ItemListContainer = ({ greeting, color }) => {
     }
 
     return (
+
+
+
         <div className='ItemListContainer'>
             <h1 style={{ color }}>{greeting}</h1>
             <div className='CategoryButtons'>
-                <NavLink to={`/category/ropa`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>Narrativa</NavLink>
-                <NavLink to={`/category/tecnologia`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>Autoayuda</NavLink>
-                <NavLink to={`/category/joyeria`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>Historia</NavLink>
+                <NavLink to={`/category/ropa`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>ropa</NavLink>
+                <NavLink to={`/category/tecnologia`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>tecnologia</NavLink>
+                <NavLink to={`/category/joyeria`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>joyeria</NavLink>
             </div>
             <ItemList products={products} />
+
+        
         </div>
     )
 
