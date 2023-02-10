@@ -91,7 +91,8 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div>
-                    <h5 style={{ color: 'black', marginTop: '40px' }}>En breve recibirás un e-mail con los pasos a seguir</h5>
+                    <h5 style={{ color: 'black', marginTop: '40px',letterSpacing:'4px' }}>Momentaneamente le llegara un mail deconfirmacion para proceder a la facturacion de su compra, de no verlo revise su carpeta de SPAM</h5>
+                    <h4 style={{ color: 'black', marginTop: '40px',letterSpacing:'4px',textDecoration:'underline' }}>MUCHAS GRACIAS POR COMPRAR CON NOSOTROS!</h4>
                     <Link to='/'><p style={{ fontSize: '20px', marginTop: '90px', color: 'black', textDecoration: 'none' }} >Volver al inicio</p></Link>
                 </div>
             </div>
