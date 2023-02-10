@@ -1,23 +1,25 @@
 
 import './App.css';
 import { BrowserRouter} from 'react-router-dom'
-import AppRouter from './routes/routes';
-import Navbar from './components/navbar/navbar'
-import { CartProvider } from './context/cartcontext'
+import AppRoutes from './routes/AppRoutes';
+import Navbar from './components/Navbar/Navbar'
+import { CartProvider } from './context/CartContext'
 
+import { NotificationProvider } from './notification/NotificationService';
 
 
 function App() {
   return (
     
     <div className="App">
- 
-        <BrowserRouter>
+        <NotificationProvider>
         <CartProvider>
+        <BrowserRouter>
           <Navbar />
-          <AppRouter />
-          </CartProvider>
+          <AppRoutes />
         </BrowserRouter>
+        </CartProvider>
+        </NotificationProvider>
     </div>
   );
 }

@@ -1,49 +1,49 @@
-import { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
-// import { getProductsbyid } from "../../mockasync";
-import Itemdetail from "../itemdetail/itemdetail"
-import { getDoc, doc } from 'firebase/firestore'
+import './ItemDetailContainer.css'
+import { useState, useEffect } from 'react'
+// import { getProductById } from '../../asyncMock'
+import ItemDetail from '../ItemDetail/ItemDetail'
+import { useParams } from 'react-router-dom'
+import { doc,getDoc } from 'firebase/firestore'
+import { db } from '../../services/firebase/firebaseconfig'
 
-import { datab } from '../../services/firebase/firebaseconfig'
-
-// --------------------------------------------
-const Itemdetailcontainer = () => {
-    const [product, setProduct] = useState()
+const ItemDetailContainer = () => {
+    const [product, setProduct] = useState({})
     const [loading, setLoading] = useState(true)
-    const { productId } = useParams()
 
-    useEffect(() =>{
-        document.title='Detalle del producto'
-    },[])
+    const { productId } = useParams()
 
 
     useEffect(() => {
-        (async () => {
-            const productRef = doc(datab, 'products', productId)
-            try {
-            const snapshot = await getDoc(productRef)
-            const fields = snapshot.data()
-            const productAdapted={id: snapshot.id, ...fields}
-    
+        setLoading(true)
+
+        const docRef = doc(db, 'items', productId)
+
+        getDoc(docRef).then(doc => {
+            const dataProduct = doc.data()
+            const productAdapted = { id: doc.id, ...dataProduct }
             setProduct(productAdapted)
-            } catch (error) {
-                console.log(error)
-            } finally {
-                setLoading(false)
-            }
-        })()
+        }).catch(error => {
+            console.log(error)
+        }).finally(() => {
+            setLoading(false)
+        })
+
     }, [productId])
 
-    if(loading) {
-        return <h1>Cargando...</h1>
+    if (loading) {
+        return (
+            <div>
+                <h2 className='h2loading'>Cargando</h2>
+                <div className='lds-dual-ring'></div>
+            </div>
+        );
     }
 
-    return(
+    return (
         <div className='ItemDetailContainer' >
-            <h1>Detalle {product.name}</h1>
-            <Itemdetail {...product}/>
+            <ItemDetail {...product} />
         </div>
     )
 }
 
-export default Itemdetailcontainer
+export default ItemDetailContainer

@@ -1,30 +1,69 @@
-import { Link} from 'react-router-dom'
-import './navbar.css'
-import Cartwidget from "../carrito/cartwidget"
-import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
-import { CartContext } from '../../context/cartcontext'
-const Navbar= () =>{
+import { NavLink, Link } from 'react-router-dom'
+import CartWidget from '../CartWidget/CartWidget'
+import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 
+const Navbar = () => {
   const navigate = useNavigate()
   const { totalQuantity } = useContext(CartContext)
-    return(
-      
-    <nav className="navbar">
-    <h1 className="navbar_titulo" onClick={() => navigate('/')} >
-    E-commerce-libertini
-    </h1>
+    return (
+      <nav className="navbar navbar-expand-lg">
+      <div className="container-fluid">
+        <div>
+          <Link to='/' className="navbar-brand">
+            <img src="..\assets\images\ecomercelogo.webp" alt='logo'/>
+            <h1>E-commerce-libertini</h1>
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div
+            className="collapse navbar-collapse"
+            id="navbarSupportedContent"
+          ></div>
+          </div>
+          <div>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink to='/' className={({ isActive }) => isActive ? 'ActiveOption' : 'nav-link'}>
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to='/locales' className={({ isActive }) => isActive ? 'ActiveOption' : 'nav-link'}>                
+                  Locales
+                </NavLink>                
+              </li>
+              <li className="nav-item">
+                <NavLink to='/franquicias' className={({ isActive }) => isActive ? 'ActiveOption' : 'nav-link'}>                
+                  Franquicias
+                </NavLink>                
+              </li>
+              <li className="nav-item">
+                <NavLink to='/contacto' className={({ isActive }) => isActive ? 'ActiveOption' : 'nav-link'}>                
+                  Contacto
+                </NavLink>                
+              </li>
+            </ul>
+          </div>
+        
+        <div>
+        <CartWidget totalQuantity={totalQuantity}/>
+        </div>
+      </div>
+    </nav>
     
-    <div>
-      <Link className='navbar_botones' to='/category/tecnologia'>Tecnologia</Link>
-      <Link className='navbar_botones' to='/category/ropa'>ropa</Link>
-      <Link className='navbar_botones' to='/category/joyeria'>joyeria</Link>
-    
-    </div>
-    <Cartwidget quantity={totalQuantity}/>
-  </nav>
-  
     )
-
 }
+
 export default Navbar

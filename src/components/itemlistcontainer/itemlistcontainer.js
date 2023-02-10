@@ -1,58 +1,65 @@
-import {useEffect,useState} from 'react' 
-import Itemlist from '../itemlist/itemlist'
+import './ItemListContainer.css'
+import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
-import { getDocs,collection} from 'firebase/firestore'
-import { datab } from '../../services/firebase/firebaseconfig'
-
-
-const Itemlistcontainer = ({ greetings }) => {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
+import { useAsync } from '../../hooks/useAsync'
+import { useTitle } from '../../hooks/useTitle'
+import { getProducts } from '../../services/firebase/firestore/products'
+import { NavLink } from 'react-router-dom';
+const ItemListContainer = ({ greeting, color }) => {
+    useTitle('ecomerce-libertini', [])
 
     const { categoryId } = useParams()
 
-    useEffect(() => {
-        document.title = 'Todos los productos'
-    }, [])
+    const getProductsWithCategory = () => getProducts(categoryId)
 
-    useEffect(() => {
-        (async () =>{ 
-            setLoading(true)
-            
-            const productsRef = collection(datab, 'products')
+    const { data: products, error, loading } = useAsync(getProductsWithCategory, [categoryId])
 
-            try {
-                const snapshot = await getDocs(productsRef)
-
-                const productsAdapted = snapshot.docs.map(doc => {
-                    const fields = doc.data()
-
-                    return {id: doc.id, ...fields}
-                })
-
-                setProducts(productsAdapted)
-            } catch (error) {
-                console.log(error)
-            } finally { 
-                setLoading(false)
-            }
-        })()
-    }, [categoryId])
-
-
-    if(loading) {
-        return <h1>Cargando productos...</h1>
+    const rejectApi = () => {
+        alert('Hubo un problema al conectarse con la base de datos', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
     }
-return(
-    <div>
-        <h1>{greetings}</h1>
 
-            <div >
-                <div ><Itemlist class='col' products={products}/></div>
-            
+    if (loading) {
+        return (
+            <div>
+                <h2 className='h2loading'>Cargando</h2>
+                <div className='lds-dual-ring'></div>
             </div>
-    </div>
-)
+        );
+    }
+
+    if (error) {
+
+        rejectApi()
+        return (
+            <div>
+                <p>"ups algo salio mal"</p>
+            </div>
+        );
+    }
+
+    return (
+        <div className='ItemListContainer'>
+            <h1 style={{ color }}>{greeting}</h1>
+            <div className='CategoryButtons'>
+                <NavLink to={`/category/ropa`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>Narrativa</NavLink>
+                <NavLink to={`/category/tecnologia`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>Autoayuda</NavLink>
+                <NavLink to={`/category/joyeria`} className={({ isActive }) => isActive ? 'ActiveOptionCategoryButtons' : 'CategoryButton'}>Historia</NavLink>
+            </div>
+            <ItemList products={products} />
+        </div>
+    )
+
 }
 
-export default Itemlistcontainer
+
+
+export default ItemListContainer

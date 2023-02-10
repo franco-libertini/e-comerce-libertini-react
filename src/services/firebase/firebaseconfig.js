@@ -1,19 +1,16 @@
 
 import { initializeApp } from 'firebase/app'
-
 import {getFirestore} from 'firebase/firestore'
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyDKnX80Wc19LG8_XUq22vwEuCbwNjzuJpE",
-  authDomain: "e-commerce-libertini.firebaseapp.com",
-  projectId: "e-commerce-libertini",
-  storageBucket: "e-commerce-libertini.appspot.com",
-  messagingSenderId: "477229853704",
-  appId: "1:477229853704:web:b1547de665c85ba9ddb5bd"
+  apiKey: "AIzaSyATVffESuVncg2YwjV0CWOeegkRZvOfd3Q",
+  authDomain: "base-de-datos-libertini.firebaseapp.com",
+  projectId: "base-de-datos-libertini",
+  storageBucket: "base-de-datos-libertini.appspot.com",
+  messagingSenderId: "881238696666",
+  appId: "1:881238696666:web:787961e495bc0fa8cafbe3"
 };
-
 
 const app = initializeApp(firebaseConfig);
 
-export const datab =getFirestore(app);
+export const db =getFirestore(app);

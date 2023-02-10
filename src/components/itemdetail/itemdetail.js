@@ -1,38 +1,52 @@
-import { useState,useContext } from "react"
-import '../item/itemstyles.css'
-import './itemdetails.css'
-import { Link } from "react-router-dom"
-import Itemcount from "../itemcount/itemcount"
-import { CartContext } from "../../context/cartcontext"
+import './ItemDetail.css'
+import { useContext } from 'react'
+import ItemCount from '../ItemCount/ItemCount'
+import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
+import { NotificationContext } from '../../notification/NotificationService'
 
-const Itemdetail= ({id, name, img, price, category, description, stock}) =>{
-    
-    const [Quantity, setQuantity] = useState(0)
-    const { addItem } = useContext(CartContext)
-    const handleOnadd = (qty) => {
-        setQuantity(parseInt(qty))
-        addItem({id, name, Quantity,price })
-}
+
+const ItemDetail = ({ id, title, img, price, stock }) => {
+    const { addItem, isInCart } = useContext(CartContext)
+    const setNotification = useContext(NotificationContext)
+
+    const handleOnAdd = (quantity) => {        
+        addItem({ id, title, price, quantity, img})
+        setNotification('error',`Se agregó al carrito ${quantity} ${title}`, 5)
+    }
+
     return (
-        <div>
-            <h4>{name}</h4>
-            <p>{category}</p>
-            <img className="itemsimgs" src={img} alt={name}/>
-            <div class="d-flex flex-column">
-                <p class="precio">$ {price}</p>
-                
-                <p class="descripcion" >Descripcion: {description}</p>
-            </div>
-            
-            {
-                    Quantity > 0 ? (
-                        <Link to='/cart' className='Option'>Terminar compra</Link>
+        <div className='ItemDetail'>
+            <header className="Header">
+                <picture>
+                    <img src={img} alt={title} className="ItemDetailImg" />
+                </picture>
+            </header>
+            <div className='ItemDetailInfo'>
+                <section>
+                    <h2 className="ItemDetailTitle">
+                        {title}
+                    </h2>
+                </section>
+                <section>
+                    <p className="ItemDetailPrice">
+                        Precio: ${price}
+                    </p>
+                </section>
+                <div className='ItemDetailCounter'>
+                <footer className='ItemFooter'>
+                {
+                    isInCart(id) ? (
+                        <Link to='/cart'><button className='ButtonTerminarCompra'>Terminar compra</button></Link>
                     ) : (
-                        <Itemcount stock={stock} onAdd={handleOnadd} />
+                        <ItemCount stock={stock} onAdd={handleOnAdd} />
                     )
                 }
-            
+            </footer>
+                </div>
+            </div>
         </div>
     )
 }
-export default Itemdetail
+
+export default ItemDetail

@@ -1,0 +1,99 @@
+.ItemDetail {
+    display: flex;
+    margin: 80px 0 40px 0;
+}
+
+.ItemDetailInfo {
+    width: 600px;
+}
+
+.ItemDetailInfo span {
+    margin-right: 4px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.CardItemDetail {
+    width: 150px;
+    padding: 30px;
+    margin: 30px;
+    font-size: 10px;
+}
+
+.ItemDetailTitle {
+    font-size: 42px;
+}
+
+.ItemDetailAuthor {
+    font-size: 20px;
+    color: rgb(127, 127, 127);
+}
+
+.ItemDetailPrice {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+}
+
+.ItemHeader {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border-radius: 25px;
+}
+
+.Info {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Button {
+    width: auto;
+    padding: 12px;
+    font-size: 8px;
+    background: #8C30F5;
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.ItemDetailImg {
+    object-fit: cover;
+    object-position: center;
+    width: 280px;
+    height: 438, 87px;
+    padding: auto;
+    margin-right: 80px;
+    box-shadow: 0 4px 8px 0 #828282, 0 6px 20px 0 rgba(151, 151, 151, 0.948);
+}
+
+
+.ButtonTerminarCompra {
+    margin-top: 10px;
+    background-color: #a5d8ff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px 20px;
+    margin-block: 10px;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    color: black;
+}
+
+.ButtonTerminarCompra:hover {
+    background-color: #7ec7ff;
+    color: black;
+}
